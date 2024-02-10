@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using HotChocolate.Execution.Processing;
-using HotChocolate.Resolvers;
 using HotChocolate.Types.Descriptors;
 using HotChocolate.Utilities;
 using static HotChocolate.Data.ThrowHelper;
@@ -82,8 +81,8 @@ public class ProjectionConvention
         }
     }
 
-    public FieldMiddleware CreateExecutor<TEntityType>() =>
-        _provider.CreateExecutor<TEntityType>();
+    public IQueryBuilder CreateBuilder<TEntityType>() =>
+        _provider.CreateBuilder<TEntityType>();
 
     public ISelectionSetOptimizer CreateOptimizer() =>
         new ProjectionOptimizer(_provider);

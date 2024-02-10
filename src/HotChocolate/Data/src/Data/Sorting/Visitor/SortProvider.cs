@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using HotChocolate.Configuration;
-using HotChocolate.Resolvers;
 using HotChocolate.Types;
 using HotChocolate.Types.Descriptors;
 using HotChocolate.Utilities;
@@ -154,7 +153,7 @@ public abstract class SortProvider<TContext>
     /// </param>
     /// <typeparam name="TEntityType">The runtime type of the entity</typeparam>
     /// <returns>A middleware</returns>
-    public abstract FieldMiddleware CreateExecutor<TEntityType>(string argumentName);
+    public abstract IQueryBuilder CreateBuilder<TEntityType>(string argumentName);
 
     /// <summary>
     /// Is called on each field that sorting is applied to. This method can be used to
